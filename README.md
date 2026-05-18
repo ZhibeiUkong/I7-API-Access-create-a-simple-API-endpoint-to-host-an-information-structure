@@ -50,95 +50,9 @@ https://upfront-snort-concur.ngrok-free.dev/api/foods/FS-001
 https://upfront-snort-concur.ngrok-free.dev/api/foods/search?status=Safe
 ```
 
-## How to Run the Flask Server Locally
-
-Open Command Prompt and go to the project folder:
-
-```bash
-cd C:\Users\ROG\Downloads\myproject
-```
-
-Activate the virtual environment:
-
-```bash
-.venv\Scripts\activate
-```
-
-Install Flask:
-
-```bash
-python -m pip install Flask
-```
-
-Run the Flask server on port 5002:
-
-```bash
-python -m flask --app food_api run -p 5002
-```
-
-If the server runs successfully, the terminal should show:
-
-```text
-Running on http://127.0.0.1:5002
-```
-
-## How to Expose the API with ngrok
-
-Keep the Flask server running. Then open a second Command Prompt window and run:
-
-```bash
-ngrok http http://localhost:5002
-```
-
-ngrok will create a public forwarding URL, such as:
-
-```text
-https://upfront-snort-concur.ngrok-free.dev
-```
-
-This public URL can be used to access the local Flask API from outside the local machine.
-
-## How to Test the API with Python Requests
-
-Install the requests library:
-
-```bash
-python -m pip install requests
-```
-
-Run the test file:
-
-```bash
-python test_api.py
-```
-
-The script sends GET requests to the ngrok URL and prints the API responses.
-
-Example code:
-
-```python
-import requests
-
-base_url = "https://upfront-snort-concur.ngrok-free.dev"
-
-print(requests.get(base_url + "/").text)
-
-foods_response = requests.get(base_url + "/api/foods")
-print(foods_response.json())
-
-one_food_response = requests.get(base_url + "/api/foods/FS-001")
-print(one_food_response.json())
-
-search_response = requests.get(base_url + "/api/foods/search?status=Safe")
-print(search_response.json())
-```
 
 ## Video Tutorial
 
 Video tutorial link: [Watch the video tutorial](https://drive.google.com/file/d/1AKNvAihTtx5HxQbUyC1lJ3QX05yKAZlf/view?usp=sharing)
 
-## Notes
 
-The Flask terminal must stay open while testing the API. The ngrok terminal must also stay open because the public URL only works while ngrok is running. If ngrok is restarted, the public URL may change, so the URL in `test_api.py` and this README may need to be updated.
-
-This project satisfies the assignment requirements by selecting an information structure, hosting it through a Flask API endpoint, exposing the local endpoint with ngrok, and accessing the API through a Python `requests.get()` command.
