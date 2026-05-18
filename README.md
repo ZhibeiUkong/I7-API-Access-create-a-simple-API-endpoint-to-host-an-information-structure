@@ -38,7 +38,6 @@ Local Flask server examples:
 http://127.0.0.1:5002/
 http://127.0.0.1:5002/api/foods
 http://127.0.0.1:5002/api/foods/FS-001
-http://127.0.0.1:5002/api/foods/search?status=Safe
 ```
 
 ngrok public URL examples:
@@ -47,7 +46,6 @@ ngrok public URL examples:
 https://upfront-snort-concur.ngrok-free.dev/
 https://upfront-snort-concur.ngrok-free.dev/api/foods
 https://upfront-snort-concur.ngrok-free.dev/api/foods/FS-001
-https://upfront-snort-concur.ngrok-free.dev/api/foods/search?status=Safe
 ```
 
 
